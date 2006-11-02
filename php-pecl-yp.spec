@@ -14,7 +14,7 @@ Source0:	%{name}-%{_snap}.tar.gz
 # Source0-md5:	ea77871191b0a32c4734964f7c02bc6c
 URL:		http://cvs.php.net/pecl/yp/
 BuildRequires:	php-devel >= 3:5.0.0
-BuildRequires:	rpmbuild(macros) >= 1.254
+BuildRequires:	rpmbuild(macros) >= 1.322
 %{?requires_php_extension}
 Requires:	%{_sysconfdir}/conf.d
 Obsoletes:	php-yp
