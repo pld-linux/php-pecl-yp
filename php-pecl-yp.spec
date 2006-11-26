@@ -7,7 +7,7 @@ Summary:	%{_modname} - a NIS client for PHP
 Summary(pl):	%{_modname} - klient NIS dla PHP
 Name:		php-pecl-%{_modname}
 Version:	0.%{_snap}
-Release:	1
+Release:	2
 License:	PHP
 Group:		Development/Languages/PHP
 Source0:	%{name}-%{_snap}.tar.gz
@@ -17,6 +17,7 @@ BuildRequires:	php-devel >= 3:5.0.0
 BuildRequires:	rpmbuild(macros) >= 1.322
 %{?requires_php_extension}
 Requires:	%{_sysconfdir}/conf.d
+Provides:	php(yp)
 Obsoletes:	php-yp
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
