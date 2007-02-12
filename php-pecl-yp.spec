@@ -2,7 +2,7 @@
 %define		_modname	yp
 %define		_status		stable
 Summary:	%{_modname} - a NIS client for PHP
-Summary(pl):	%{_modname} - klient NIS dla PHP
+Summary(pl.UTF-8):   %{_modname} - klient NIS dla PHP
 Name:		php-pecl-%{_modname}
 Version:	0.%{_snap}
 Release:	3
@@ -23,8 +23,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 This is a dynamic shared object (DSO) for PHP that will add NIS
 (Yellow Pages) support.
 
-%description -l pl
-Modu³ PHP dodaj±cy wsparcie dla NIS (Yellow Pages).
+%description -l pl.UTF-8
+ModuÅ‚ PHP dodajÄ…cy wsparcie dla NIS (Yellow Pages).
 
 %prep
 %setup -q -n %{name}-%{_snap}
