@@ -2,7 +2,7 @@
 %define		_modname	yp
 %define		_status		stable
 Summary:	%{_modname} - a NIS client for PHP
-Summary(pl.UTF-8):   %{_modname} - klient NIS dla PHP
+Summary(pl.UTF-8):	%{_modname} - klient NIS dla PHP
 Name:		php-pecl-%{_modname}
 Version:	0.%{_snap}
 Release:	3
