@@ -5,7 +5,7 @@ Summary:	%{_modname} - a NIS client for PHP
 Summary(pl.UTF-8):	%{_modname} - klient NIS dla PHP
 Name:		php-pecl-%{_modname}
 Version:	0.%{_snap}
-Release:	4
+Release:	5
 License:	PHP
 Group:		Development/Languages/PHP
 Source0:	%{name}-%{_snap}.tar.gz
