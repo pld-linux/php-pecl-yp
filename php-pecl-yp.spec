@@ -1,18 +1,19 @@
-%define		_snap		20060104
-%define		_modname	yp
-%define		_status		stable
-Summary:	%{_modname} - a NIS client for PHP
-Summary(pl.UTF-8):	%{_modname} - klient NIS dla PHP
-Name:		php-pecl-%{_modname}
-Version:	0.%{_snap}
+%define		php_name	php%{?php_suffix}
+%define		snap		20060104
+%define		modname	yp
+%define		status		stable
+Summary:	%{modname} - a NIS client for PHP
+Summary(pl.UTF-8):	%{modname} - klient NIS dla PHP
+Name:		%{php_name}-pecl-%{modname}
+Version:	0.%{snap}
 Release:	7
 License:	PHP
 Group:		Development/Languages/PHP
-Source0:	%{name}-%{_snap}.tar.gz
+Source0:	php-pecl-%{modname}-%{snap}.tar.gz
 # Source0-md5:	ea77871191b0a32c4734964f7c02bc6c
 URL:		http://cvs.php.net/pecl/yp/
-BuildRequires:	php-devel >= 3:5.0.0
-BuildRequires:	rpmbuild(macros) >= 1.344
+BuildRequires:	%{php_name}-devel >= 3:5.0.0
+BuildRequires:	rpmbuild(macros) >= 1.650
 %{?requires_php_extension}
 Requires:	php(core) >= 5.0.4
 Provides:	php(yp)
@@ -27,7 +28,8 @@ This is a dynamic shared object (DSO) for PHP that will add NIS
 Moduł PHP dodający wsparcie dla NIS (Yellow Pages).
 
 %prep
-%setup -q -n %{name}-%{_snap}
+%setup -qc
+mv php-pecl-%{modname}-%{snap}/* .
 
 %build
 phpize
@@ -38,10 +40,10 @@ phpize
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{php_sysconfdir}/conf.d,%{php_extensiondir}}
 
-install modules/%{_modname}.so $RPM_BUILD_ROOT%{php_extensiondir}
-cat <<'EOF' > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{_modname}.ini
-; Enable %{_modname} extension module
-extension=%{_modname}.so
+install modules/%{modname}.so $RPM_BUILD_ROOT%{php_extensiondir}
+cat <<'EOF' > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{modname}.ini
+; Enable %{modname} extension module
+extension=%{modname}.so
 EOF
 
 %clean
@@ -58,5 +60,5 @@ fi
 %files
 %defattr(644,root,root,755)
 %doc CREDITS
-%config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/%{_modname}.ini
-%attr(755,root,root) %{php_extensiondir}/%{_modname}.so
+%config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/%{modname}.ini
+%attr(755,root,root) %{php_extensiondir}/%{modname}.so
