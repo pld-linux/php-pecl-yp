@@ -1,4 +1,4 @@
-%define		rel			1
+%define		rel			2
 %define		subver		RC1
 %define		modname		yp
 %define		status		beta
@@ -17,6 +17,7 @@ BuildRequires:	%{php_name}-devel >= 4:5.3.0
 BuildRequires:	rpmbuild(macros) >= 1.650
 %{?requires_php_extension}
 Provides:	php(yp)
+Obsoletes:	php-pecl-yp < 1.0.0-0.RC1.1
 Obsoletes:	php-yp
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
