@@ -1,19 +1,18 @@
-%define		rel			2
-%define		subver		RC1
 %define		modname		yp
 %define		status		beta
 %define		php_name	php%{?php_suffix}
 Summary:	%{modname} - YP/NIS functions
-Summary(pl.UTF-8):	%{modname} - klient NIS dla PHP
+Summary(pl.UTF-8):	%{modname} - klient YP/NIS dla PHP
 Name:		%{php_name}-pecl-%{modname}
-Version:	1.0.0
-Release:	0.%{subver}.%{rel}
+Version:	1.0.1
+Release:	1
 License:	PHP
 Group:		Development/Languages/PHP
-Source0:	http://pecl.php.net/get/%{modname}-%{version}%{subver}.tgz
-# Source0-md5:	4ae09ff196f358a98a5f2cf30fabd733
+Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
+# Source0-md5:	6c57bf144d1bb8c4aca5309cc4281407
 URL:		http://pecl.php.net/package/yp/
 BuildRequires:	%{php_name}-devel >= 4:5.3.0
+BuildRequires:	libnsl-devel
 BuildRequires:	rpmbuild(macros) >= 1.650
 %{?requires_php_extension}
 Provides:	php(yp)
@@ -26,11 +25,11 @@ NIS (formerly called Yellow Pages) allows network management of
 important administrative files (e.g. the password file).
 
 %description -l pl.UTF-8
-Moduł PHP dodający wsparcie dla NIS (Yellow Pages).
+Moduł PHP dodający obsługę NIS (Yellow Pages).
 
 %prep
 %setup -qc
-mv %{modname}-%{version}%{?subver}/* .
+%{__mv} %{modname}-%{version}/* .
 
 %build
 phpize
@@ -39,6 +38,7 @@ phpize
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	EXTENSION_DIR=%{php_extensiondir} \
 	INSTALL_ROOT=$RPM_BUILD_ROOT
