@@ -5,7 +5,7 @@ Summary:	%{modname} - YP/NIS functions
 Summary(pl.UTF-8):	%{modname} - klient YP/NIS dla PHP
 Name:		%{php_name}-pecl-%{modname}
 Version:	1.0.1
-Release:	1
+Release:	2
 License:	PHP
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
